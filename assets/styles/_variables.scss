@@ -1,0 +1,42 @@
+$primary: #d7ba31;
+$primary-light: #ebd08a;
+$secondary: #474035;
+$secondary-light: #695e5e;
+$dark: #08080b;
+$dark-light: #0e0d12;
+$dark-opacity: rgba(8, 8, 11, 0.4);
+$light: #fbfbfb;
+$tertiary: #474035;
+$success-light: #6bc92c;
+$danger: rgb(209, 45, 45);
+
+$navbar-height: 64px;
+$navbarTastingSheetBg: #1a1813;
+$footer-height: 90px;
+
+$dropdown-link-hover-bg: $primary;
+$dropdown-link-hover-color: $dark-light;
+
+$font-base: "Roboto", sans-serif;
+$font-card-title: "SnellBT-Regular", sans-serif;
+$font-title: "Fontspring-TheSeasons", sans-serif;
+$font-size-mid: 2rem;
+
+$body-color: $light;
+$body-bg: $dark-light;
+$font-family-base: $font-base;
+$shadow-primary: 0.5rem 0.5rem 1rem rgba(189, 173, 53, 0.1);
+
+$card-gradient-color: linear-gradient(
+    0deg,
+    rgba(81, 69, 63, 0.05) -21.85%,
+    rgba(126, 109, 50, 0.17) 127.46%,
+    rgba(213, 194, 26, 0) 128.23%
+);
+$line-gradient-color: linear-gradient(180deg, rgba(238, 214, 101, 0) 0%, #eed665 50%, rgba(238, 214, 101, 0) 100%);
+$icon-gradient-color: radial-gradient(
+    49.66% 49.66% at 50.34% 50.34%,
+    rgba(180, 137, 56, 0.83) 0%,
+    #684a10 30.26%,
+    #14110f 100%
+);

@@ -1,0 +1,29 @@
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~bootstrap/scss/functions";
+
+@import "_fonts.scss";
+
+// 2. Include any default variable overrides here
+@import "_variables.scss";
+
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/variables-dark";
+
+// 4. Include any default map overrides here
+$custom-colors: (
+    "success-light": $success-light,
+    "tertiary": $tertiary,
+    "primary-light": $primary-light,
+    "secondary-light": $secondary-light,
+    "dark-light": $dark-light,
+    "red_wine": rgb(111, 51, 81),
+    "white_wine": rgb(246, 221, 234),
+    "pink_wine": rgb(245, 161, 239),
+    "gray_wine": rgb(156, 153, 153),
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
