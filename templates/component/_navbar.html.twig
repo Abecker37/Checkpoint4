@@ -13,13 +13,24 @@
                 class="navbar-nav d-flex justify-content-between w-100 align-lg-items-center gap-lg-4 pt-4 pt-md-0 pb-2 pb-md-0">
                 <div class="d-flex flex-column flex-md-row">
                     <li class="nav-item px-2">
-                        <a class="nav-link letter-spacing" href="#">???</a>
+                        <a class="nav-link letter-spacing" href="#">Jeux</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link letter-spacing" href="#">???</a>
+                        <a class="nav-link letter-spacing" href="#">Catégorie</a>
                     </li>
                 </div>
             </ul>
+            {% if app.user %}
+
+            {{ app.user.email }}
+
+            <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+
+            {% else %}
+
+            <a href="{{ path('app_login') }}"> Login</a>
+
+            {% endif %}
         </div>
     </div>
 </nav>
