@@ -1,0 +1,38 @@
+@import "_variables.scss";
+
+footer {
+    height: $footer-height;
+    background-color: $dark;
+    height: 100%;
+    padding-block: 1rem;
+}
+
+.line > img {
+    width: 100%;
+}
+
+.social a > img {
+    width: 40px;
+    margin-inline: 10px;
+    margin-bottom: 0;
+}
+
+.title > p {
+    margin-bottom: 0;
+    padding-block-end: 0.8rem;
+}
+
+.title > h2 {
+    padding-block-start: 0.8rem;
+    font-size: 1.5rem;
+}
+
+.details a > p {
+    width: 240px;
+    margin-bottom: 0;
+}
+
+.details a {
+    color: $light;
+    text-decoration: none;
+}

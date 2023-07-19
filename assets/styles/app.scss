@@ -1,5 +1,20 @@
 @import "_theme.scss";
+@import "_footer";
 
 body {
     background-color: $light;
+    padding-block-start: $navbar-height;
+}
+
+p {
+    font-family: $font-base;
+    letter-spacing: 3px;
+}
+
+html {
+    height: 100%;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0;
 }
