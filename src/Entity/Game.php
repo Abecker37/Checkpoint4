@@ -20,8 +20,11 @@ class Game
     #[ORM\Column(length: 255)]
     private ?string $picture = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date = null;
+    #[ORM\Column(length:255)]
+    private ?string $date = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $description = null;
 
     public function getId(): ?int
     {
@@ -52,14 +55,26 @@ class Game
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDate(): ?string
     {
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): static
+    public function setDate(?string $date): static
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): static
+    {
+        $this->description = $description;
 
         return $this;
     }
