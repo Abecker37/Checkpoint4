@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GameController!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-dark text-center">{{game.name}}</h1>
+ <img class="h-25 w-25 mb-5" src="{{ game.picture }}" class="card-img-top" alt="{{ game.name }}">
+    <div class="container dflex text-center text-dark flex-column"> 
+        {{game.description|raw}}
+    </div>
+</div>
+{% endblock %}
