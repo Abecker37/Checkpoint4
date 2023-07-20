@@ -6,6 +6,16 @@ body {
     padding-block-start: $navbar-height;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer {
+    margin-top: auto;
+}
+
 p {
     font-family: $font-base;
     letter-spacing: 3px;
