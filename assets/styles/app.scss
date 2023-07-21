@@ -3,17 +3,20 @@
 
 body {
     background-color: $light;
-    padding-block-start: $navbar-height;
-}
-
-body {
+    padding-block-start: $navbar-height; 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 .footer {
-    margin-top: auto;
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.home-div{
+height: 300px;
+width:300px;
 }
 
 p {
