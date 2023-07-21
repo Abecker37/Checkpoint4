@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}jeux détails{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{encore_entry_script_tags('game')}}
+{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-primary text-center">{{game.name}}</h1>
+    <div class="d-flex flex-row gap-4 justify-content-center mb-3">
+        <div class="flex-column w-25">
+            <img class="w-75" src="{{ game.image.medium_url }}" alt="{{ game.name }}">
+            {% for platform in game.platforms %}
+            <p class="text-dark h-25 fw-bolder">{{platform.name}}</p>
+            {% endfor %}
+
+        </div>
+        <p class="text-dark d-flex w-50 align-items-center justify-content-center">{{game.deck}}</p>
+    </div>
+
+    <div>
+        <h2 class="text-center text-primary-light">Les personnages</h2>
+        {% for character in game.characters|slice(0, 20) %}
+        <div>
+            <p class="text-dark">{{character.name}}</p>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

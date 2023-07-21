@@ -3,8 +3,24 @@
 {% block title %}home{% endblock %}
 
 {% block body %}
-<main class="container">
-    <p class="text-primary">bonjour</p>
-</main>
+<div class="container mb-5">
+    <header class=" mb-5">
+        <h1 class=" mt-5 text-danger text-center">Bienvenue chez GamerHub</h1>
+    </header>
+    <main class="main mt-5 mb-5">
+        <div class="d-flex  mt-5 justify-content-center text-center align-items-center gap-5 flex-column flex-md-row">
+            <div class="w-25 d-flex justify-content-center">
+                <img class="object-fit-cover" src="{{asset('build/images/Bowser.png')}}" alt="Bowser">
+            </div>
+            <div class="home-div">
+                <p class="text-dark text-center h-25 mt-5">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis velit sequi a quisquam, sunt minus.
+                    Quo cumque tempore quibusdam hic modi laudantium dolores? Corrupti porro eum accusamus similique
+                    maxime dicta!
+                </p>
+            </div>
+        </div>
+    </main>
+</div>
 
 {% endblock %}

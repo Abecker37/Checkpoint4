@@ -1,5 +1,33 @@
 @import "_theme.scss";
+@import "_footer";
 
 body {
     background-color: $light;
+    padding-block-start: $navbar-height; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer {
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.home-div{
+height: 300px;
+width:300px;
+}
+
+p {
+    font-family: $font-base;
+    letter-spacing: 3px;
+}
+
+html {
+    height: 100%;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0;
 }

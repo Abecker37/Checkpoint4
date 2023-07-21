@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GameController!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="mt-4 mb-4 text-dark text-center">Résultats de Recherche</h1>
+
+    <!-- Barre de recherche -->
+    <form action="{{ path('search_results') }}" method="get" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="game_name" class="form-control" placeholder="Rechercher un jeu..."
+                value="{{ searchTerm }}">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Rechercher</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        {% if games is not empty %}
+        <div class="d-flex flex-column">
+            {% for game in games %}
+                <a class="text-dark text-decoration-none" href="{{path("game_show", {'guid': game.guid})}}">{{game.name}}</a>
+            {% endfor %}
+
+            {% else %}
+            <p class="col text-dark">Aucun jeu trouvé.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
