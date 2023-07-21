@@ -73,4 +73,32 @@ class GiantBombAPI
             throw new \Exception("Erreur lors de la requête à l'API Giant Bomb : " . $e->getMessage());
         }
     }
+
+    public function findCharacter(string $url): array
+    {
+         $urldecode= urldecode($url);
+        $apiUrl = "{$urldecode}?api_key={$this->apiKey}&format=json";
+            
+         try {
+            $response = $this->httpClient->request('GET', $apiUrl);
+
+            if ($response->getStatusCode() === 200) {
+                $data = $response->toArray();
+                $game = null;
+
+                if (isset($data['results'])) {
+                    $game = $data['results'];
+
+                }
+
+                if ($game !== null) {
+                    return $game;
+                }
+            }
+
+            throw new NotFoundHttpException("Le GUUID '{$url}' n'a pas été trouvé dans l'API.");
+        } catch (ExceptionInterface $e) {
+            throw new \Exception("Erreur lors de la requête à l'API Giant Bomb : " . $e->getMessage());
+        }
+    }
 }

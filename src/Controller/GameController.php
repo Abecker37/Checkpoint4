@@ -67,4 +67,12 @@ class GameController extends AbstractController
 
         return $this->json(['isInWatchlist' => $user->isInFavorite($game)]);
     }
+
+    #[Route('game/personnage/show', name: 'character_show')]
+    public function characterShow(Request $request, GiantBombAPI $giantBombAPI): Response
+    {
+        $url = $request->query->get('url');
+        $game = $giantBombAPI->findCharacter($url);
+        return $this->render('game/characterShow.html.twig', ['game' => $game]);
+    }
 }
