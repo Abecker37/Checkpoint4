@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\GameRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -14,68 +16,61 @@ class Game
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
+   
 
     #[ORM\Column(length: 255)]
-    private ?string $picture = null;
+    private ?string $guid = null;
 
-    #[ORM\Column(length:255)]
-    private ?string $date = null;
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'games')]
+    private Collection $user;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $description = null;
+    public function __construct()
+    {
+        $this->user = new ArrayCollection();
+    }
+
+    
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+
+    public function getGuid(): ?string
     {
-        return $this->name;
+        return $this->guid;
     }
 
-    public function setName(string $name): static
+    public function setGuid(string $guid): static
     {
-        $this->name = $name;
+        $this->guid = $guid;
 
         return $this;
     }
 
-    public function getPicture(): ?string
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUser(): Collection
     {
-        return $this->picture;
+        return $this->user;
     }
 
-    public function setPicture(string $picture): static
+    public function addUser(User $user): static
     {
-        $this->picture = $picture;
+        if (!$this->user->contains($user)) {
+            $this->user->add($user);
+        }
 
         return $this;
     }
 
-    public function getDate(): ?string
+    public function removeUser(User $user): static
     {
-        return $this->date;
-    }
-
-    public function setDate(?string $date): static
-    {
-        $this->date = $date;
+        $this->user->removeElement($user);
 
         return $this;
     }
 
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): static
-    {
-        $this->description = $description;
-
-        return $this;
-    }
 }

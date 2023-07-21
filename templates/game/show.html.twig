@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}jeux détails{% endblock %}
-
+{% block javascripts %}
+    {{ parent() }}
+    {{encore_entry_script_tags('game')}}
+{% endblock %}
 {% block body %}
 <div class="container mt-5">
     <h1 class="text-primary text-center">{{game.name}}</h1>

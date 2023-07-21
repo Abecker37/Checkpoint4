@@ -60,6 +60,7 @@ class GiantBombAPI
 
                 if (isset($data['results'])) {
                     $game = $data['results'];
+
                 }
 
                 if ($game !== null) {
