@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark bg-navbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ path('app_admin') }}">
-            <img class="img-fluid mx-2" src="" alt="logo" width="40">
+            <img class="img-fluid mx-2" src="{{asset('build/images/logo.png')}}" alt="logo" width="40">
         </a>
         <button class="navbar-toggler border-secondary" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -13,13 +13,56 @@
                 class="navbar-nav d-flex justify-content-between w-100 align-lg-items-center gap-lg-4 pt-4 pt-md-0 pb-2 pb-md-0">
                 <div class="d-flex flex-column flex-md-row">
                     <li class="nav-item px-2">
-                        <a class="nav-link letter-spacing" href="#">Jeux</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link letter-spacing" href="#">Catégorie</a>
+                        <a class="nav-link letter-spacing" href="{{path('search_results')}}">Jeux</a>
                     </li>
                 </div>
             </ul>
+            {% if app.user %}
+            <div class="d-flex flex-column flex-md-row align-items-md-center position-relative pe-3">
+                {% include '/components/svg/_icon_profile.svg.twig' %}
+                <button class="custom-btn dropdown-toggle d-flex align-items-center ms-1" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <p class="m-0">
+                        <span class="text-uppercase">{{ app.user.firstname }}</span>
+                    </p>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-md-end rounded-bottom-0 custom-border">
+                    <li class="nav-item">
+                        <hr class="custom-dropdown-divider">
+                    </li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item">
+                        <a class="dropdown-item nav-link text-uppercase letter-spacing px-4"
+                            href="{{ path('app_home') }}">
+                            Espace Utilisateur<span class='custom-width'></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dropdown-item nav-link text-uppercase letter-spacing px-4"
+                            href="{{ path('app_admin') }}">
+                            Espace Admin<span class='custom-width'></span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="d-flex nav-link align-items-center w-100 dropdown-item d-inline text-uppercase letter-spacing px-4"
+                            href="{{ path('app_logout') }}">
+                            Déconnexion
+                            <span class="mb-1 ms-1">
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                {% else %}
+                <ul class="navbar-nav mr-auto ms-4 ms-sm-0 mb-4 mb-sm-0">
+                    <li class="nav-item d-flex align-items-end align-items-center px-2">
+                        <a class="nav-link text-uppercase letter-spacing" href="{{ path('app_login') }}">
+                            Connexion
+                        </a>
+                    </li>
+                </ul>
+                {% endif %}
+            </div>
         </div>
     </div>
 </nav>

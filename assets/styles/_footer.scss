@@ -4,29 +4,33 @@ footer {
     height: $footer-height;
     background-color: $dark;
     padding-block: 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-top: 6rem;
 }
 
-.line > img {
+.line>img {
     width: 100%;
 }
 
-.social a > img {
+.social a>img {
     width: 40px;
     margin-inline: 10px;
     margin-bottom: 0;
 }
 
-.title > p {
+.title>p {
     margin-bottom: 0;
     padding-block-end: 0.8rem;
 }
 
-.title > h2 {
+.title>h2 {
     padding-block-start: 0.8rem;
     font-size: 1.5rem;
 }
 
-.details a > p {
+.details a>p {
     width: 240px;
     margin-bottom: 0;
 }

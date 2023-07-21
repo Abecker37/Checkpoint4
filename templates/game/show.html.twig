@@ -6,8 +6,8 @@
     {{encore_entry_script_tags('game')}}
 {% endblock %}
 {% block body %}
-<div class="container mt-5">
-    <h1 class="text-primary text-center">{{game.name}}</h1>
+<div class="container mt-5 mb-5 ">
+    <h1 class="text-primary mb-5 text-center">{{game.name}}</h1>
     <div class="d-flex flex-row gap-4 justify-content-center mb-3">
         <div class="flex-column w-25">
             <img class="w-75" src="{{ game.image.medium_url }}" alt="{{ game.name }}">
@@ -21,7 +21,7 @@
 
     <div>
         <h2 class="text-center text-primary-light">Les personnages</h2>
-        {% for character in game.characters|slice(0, 20) %}
+        {% for character in game.characters|slice(0, 10) %}
         <div>
             <p class="text-dark">{{character.name}}</p>
         </div>
