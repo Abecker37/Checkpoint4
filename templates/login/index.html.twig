@@ -13,14 +13,14 @@
     <form class="border mt-5  rounded" action="{{ path('app_login') }}" method="post">
         <div class="d-flex flex-column justify-content-center align-items-center">
             <label for="username">Email:</label>
-            <input type="text" id="username" name="_username" value="{{ last_username }}">
+            <input class="border rounded"   type="text" id="username" name="_username" value="{{ last_username }}">
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="_password">
+            <input class="border rounded" type="password" id="password" name="_password">
 
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-            <button class="btn btn-primary" type="submit">login</button>
+            <button class="btn mt-3 btn-primary" type="submit">login</button>
         </div>
     </form>
             <a class="btn btn-primary w-25 mt-5 d-flex justify-content-center m-auto fw-bolder" href="{{path('app_register')}}">S'INSCRIRE</a>

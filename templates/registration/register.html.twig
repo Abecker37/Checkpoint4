@@ -4,9 +4,9 @@
 
 {% block body %}
 <h1>Register</h1>
-<div class="container">
+<div class="container mt-5">
     {{ form_errors(registrationForm) }}
-    <div class="text-dark">
+    <div class="text-dark m-auto mt-5 w-50">
         {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.firstName)}}
         {{ form_row(registrationForm.email) }}
