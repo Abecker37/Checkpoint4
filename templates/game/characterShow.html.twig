@@ -7,18 +7,24 @@
 {% endblock %}
 {% block body %}
 <div class="container mt-5 mb-5 ">
-    <header>
-    <img class="custom-img" src="{{ game.image.medium_url }}" alt="{{ game.name }}">
+    <header class="mb-5">
+        <h1 class="text-primary text-center">{{game.name}}</h1>
+        <div class="d-flex flex-row gap-3">
+            <img class="w-50" src="{{ game.image.medium_url }}" alt="{{ game.name }}">
+            <p class="text-dark d-flex w-50 align-items-center justify-content-center">{{game.deck}}</p>
+        </div>
     </header>
-    <main class="d-flex flex-row gap-4 justify-content-center mb-3">
-        <div class="flex-column w-25">
+    <main class="d-flex flex-row gap-4 justify-content-start mt-4 mb-3">
+        <div class="flex-column mt-3 w-25">
+            <h2 class="text-center text-primary-light">Mes Jeux</h2>
             {% for game in game.games|slice(0,10) %}
             <div>
-            <a class="text-dark text-decoration-none" href="{{path("game_show", {'guid': game.id})}}">{{game.name}}</a>
+                <a class="text-dark text-decoration-none" href="{{path("game_show", {'guid':
+                    game.id})}}">{{game.name}}</a>
             </div>
             {% endfor %}
         </div>
-        <p class="text-dark d-flex w-50 align-items-center justify-content-center">{{game.deck}}</p>
+
     </main>
 
 
