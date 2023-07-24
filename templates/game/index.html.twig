@@ -21,7 +21,7 @@
         {% if games is not empty %}
         <div class="d-flex flex-column">
             {% for game in games %}
-                <a class="text-dark text-decoration-none" href="{{path("game_show", {'guid': game.guid})}}">{{game.name}}</a>
+                <a class="text-dark text-decoration-none" href="{{path("game_show", {'guid': game.id})}}">{{game.name}}</a>
             {% endfor %}
 
             {% else %}

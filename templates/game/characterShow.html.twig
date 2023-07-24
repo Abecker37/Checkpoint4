@@ -13,9 +13,10 @@
     <main class="d-flex flex-row gap-4 justify-content-center mb-3">
         <div class="flex-column w-25">
             {% for game in game.games|slice(0,10) %}
-            <p class="text-dark fw-bolder">{{game.name}}</p>
+            <div>
+            <a class="text-dark text-decoration-none" href="{{path("game_show", {'guid': game.id})}}">{{game.name}}</a>
+            </div>
             {% endfor %}
-
         </div>
         <p class="text-dark d-flex w-50 align-items-center justify-content-center">{{game.deck}}</p>
     </main>

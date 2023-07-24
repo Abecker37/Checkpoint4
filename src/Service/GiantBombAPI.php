@@ -51,7 +51,7 @@ class GiantBombAPI
     public function findGame(string $guid): array
     {
         $encodedGuid = urlencode($guid);
-        $apiUrl = "https://www.giantbomb.com/api/game/{$encodedGuid}?api_key={$this->apiKey}&format=json";
+        $apiUrl = "https://www.giantbomb.com/api/game/3030-{$encodedGuid}?api_key={$this->apiKey}&format=json";
         try {
             $response = $this->httpClient->request('GET', $apiUrl);
 
