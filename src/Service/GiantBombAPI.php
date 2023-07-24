@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Service;
 
 use Symfony\Component\BrowserKit\Response;
@@ -18,13 +19,13 @@ class GiantBombAPI
         $this->httpClient = $httpClient;
     }
 
-   public function searchGame(string $gameName)
+    public function searchGame(string $gameName)
     {
         $encodedGameName = urlencode($gameName);
 
         $apiUrl = "https://www.giantbomb.com/api/search/?api_key={$this->apiKey}&format=json&query={$encodedGameName}&limit=10&resources=game";
 
-        
+
         try {
             $response = $this->httpClient->request('GET', $apiUrl);
 
@@ -51,7 +52,7 @@ class GiantBombAPI
     {
         $encodedGuid = urlencode($guid);
         $apiUrl = "https://www.giantbomb.com/api/game/{$encodedGuid}?api_key={$this->apiKey}&format=json";
-         try {
+        try {
             $response = $this->httpClient->request('GET', $apiUrl);
 
             if ($response->getStatusCode() === 200) {
@@ -60,7 +61,6 @@ class GiantBombAPI
 
                 if (isset($data['results'])) {
                     $game = $data['results'];
-
                 }
 
                 if ($game !== null) {
@@ -74,12 +74,13 @@ class GiantBombAPI
         }
     }
 
-    public function findCharacter(string $url): array
+
+    public function findCharacter(string $guid): array
     {
-         $urldecode= urldecode($url);
-        $apiUrl = "{$urldecode}?api_key={$this->apiKey}&format=json";
-            
-         try {
+        $guidencode = urlencode($guid);
+        $apiUrl = "https://www.giantbomb.com/api/character/3005-{$guidencode}?api_key={$this->apiKey}&format=json";
+
+        try {
             $response = $this->httpClient->request('GET', $apiUrl);
 
             if ($response->getStatusCode() === 200) {
@@ -88,7 +89,6 @@ class GiantBombAPI
 
                 if (isset($data['results'])) {
                     $game = $data['results'];
-
                 }
 
                 if ($game !== null) {
@@ -96,7 +96,7 @@ class GiantBombAPI
                 }
             }
 
-            throw new NotFoundHttpException("Le GUUID '{$url}' n'a pas été trouvé dans l'API.");
+            throw new NotFoundHttpException("Le GUUID '{$guid}' n'a pas été trouvé dans l'API.");
         } catch (ExceptionInterface $e) {
             throw new \Exception("Erreur lors de la requête à l'API Giant Bomb : " . $e->getMessage());
         }

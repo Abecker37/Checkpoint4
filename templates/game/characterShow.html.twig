@@ -2,24 +2,25 @@
 
 {% block title %}jeux détails{% endblock %}
 {% block javascripts %}
-    {{ parent() }}
-    {{encore_entry_script_tags('game')}}
+{{ parent() }}
+{{encore_entry_script_tags('game')}}
 {% endblock %}
 {% block body %}
 <div class="container mt-5 mb-5 ">
-    <h1 class="text-primary mb-5 text-center">{{game.name}}</h1>
-    <div class="d-flex flex-row gap-4 justify-content-center mb-3">
+    <header>
+    <img class="custom-img" src="{{ game.image.medium_url }}" alt="{{ game.name }}">
+    </header>
+    <main class="d-flex flex-row gap-4 justify-content-center mb-3">
         <div class="flex-column w-25">
-            <img class="w-75" src="{{ game.image.medium_url }}" alt="{{ game.name }}">
             {% for game in game.games|slice(0,10) %}
             <p class="text-dark fw-bolder">{{game.name}}</p>
             {% endfor %}
 
         </div>
         <p class="text-dark d-flex w-50 align-items-center justify-content-center">{{game.deck}}</p>
-    </div>
+    </main>
 
-    
-      
+
+
 </div>
 {% endblock %}

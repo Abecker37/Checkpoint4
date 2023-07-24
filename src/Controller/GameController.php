@@ -71,8 +71,8 @@ class GameController extends AbstractController
     #[Route('game/personnage/show', name: 'character_show')]
     public function characterShow(Request $request, GiantBombAPI $giantBombAPI): Response
     {
-        $url = $request->query->get('url');
-        $game = $giantBombAPI->findCharacter($url);
-        return $this->render('game/characterShow.html.twig', ['game' => $game]);
+        $guid = $request->query->get('id');
+        $game = $giantBombAPI->findCharacter($guid);
+        return $this->render('game/characterShow.html.twig', ['game' => $game, 'guid' => $guid]);
     }
 }

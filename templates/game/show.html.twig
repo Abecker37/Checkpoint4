@@ -20,7 +20,7 @@
         <h2 class="text-center text-primary-light">Les personnages</h2>
         {% for character in game.characters|slice(0, 10) %}
         <div>
-        <a class="text-dark" href="{{path("character_show", {'url': character.api_detail_url})}}">{{character.name}}</a> 
+        <a class="text-dark" href="{{path("character_show", {'id': character.id})}}">{{character.name}}</a> 
         </div>
         {% endfor %}
     </div>

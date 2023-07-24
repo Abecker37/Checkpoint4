@@ -10,10 +10,26 @@ body {
     position: relative;
     padding-bottom: $footer-height;
 }
+.custom-btn {
+    border: none;
+    background-color: transparent;
+    color: $light;
+}
 
 .home-div {
     height: 300px;
     width: 300px;
+}
+.custom-width
+{
+    width: 100px;
+}
+
+.custom-img
+{
+    width: 100%;
+    height: 600px;
+    margin-bottom: 2rem;
 }
 
 p {
